@@ -1,3 +1,4 @@
+/* General Body and Layout */
 body {
   margin: 0;
   background: #1b002f;
@@ -11,8 +12,10 @@ h1 {
   font-size: 3em;
   color: #f0c040;
   margin-top: 20px;
+  text-shadow: 0 0 10px rgba(240, 192, 64, 0.8), 0 0 20px rgba(240, 192, 64, 0.7);
 }
 
+/* Section Styles */
 .section {
   padding: 40px 20px;
   opacity: 0;
@@ -26,36 +29,48 @@ h1 {
 }
 
 .section-title {
-  font-size: 2em;
+  font-size: 2.5em;
   margin-bottom: 20px;
-  border-bottom: 2px solid #f0c040;
+  border-bottom: 3px solid #f0c040;
   display: inline-block;
+  color: #f0c040;
+  text-shadow: 0 0 10px rgba(240, 192, 64, 0.8);
+  padding-bottom: 5px;
 }
 
+/* Gallery Grid */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  margin-top: 20px;
 }
 
+/* Card Styles */
 .card {
   background: #2c003f;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 0 20px 5px #ffd70055;
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.35);
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s ease-in-out;
   cursor: pointer;
 }
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 30px 10px #ffd700aa;
+  box-shadow: 0 0 30px 10px rgba(255, 215, 0, 0.6);
+  opacity: 1;
 }
 
 .card img {
   width: 100%;
   height: auto;
   display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card img:hover {
+  transform: scale(1.1);
 }
 
 .card-title {
@@ -64,8 +79,11 @@ h1 {
   font-weight: bold;
   color: #f0c040;
   background-color: #1b002f;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
+/* Lightbox Styles */
 .lightbox {
   display: none;
   position: fixed;
@@ -77,11 +95,66 @@ h1 {
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  transition: all 0.3s ease;
 }
 
 .lightbox img {
   max-width: 90vw;
   max-height: 90vh;
   border-radius: 10px;
-  box-shadow: 0 0 30px 10px #ffd70088;
+  box-shadow: 0 0 30px 10px rgba(255, 215, 0, 0.6);
+  transition: transform 0.3s ease-in-out;
+}
+
+.lightbox img:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth Scroll Animation */
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s, transform 1s ease-in-out;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(240, 192, 64, 0.8);
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(27, 0, 47, 0.3);
+}
+
+/* For Mobile Responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5em;
+  }
+
+  .section-title {
+    font-size: 2.2em;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .section-title {
+    font-size: 1.8em;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }
