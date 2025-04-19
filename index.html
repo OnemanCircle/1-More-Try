@@ -1,153 +1,38 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Neon Purple Gallery</title>
-  <style>
-    body {
-      margin: 0;
-      background: #1b002f;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      overflow-x: hidden;
-    }h1 {
-  text-align: center;
-  font-size: 3em;
-  color: #f0c040;
-  margin-top: 20px;
-}
-
-.section {
-  padding: 40px 20px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.section-title {
-  font-size: 2em;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #f0c040;
-  display: inline-block;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background: #2c003f;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 20px 5px #ffd70055;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px 10px #ffd700aa;
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.card-title {
-  text-align: center;
-  padding: 10px;
-  font-weight: bold;
-  color: #f0c040;
-  background-color: #1b002f;
-}
-
-.lightbox {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.9);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.lightbox img {
-  max-width: 90vw;
-  max-height: 90vh;
-  border-radius: 10px;
-  box-shadow: 0 0 30px 10px #ffd70088;
-}
-
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Neon Purple Gallery</h1>  <div class="section">
+  <h1>Neon Purple Gallery</h1>
+
+  <!-- Cars Section -->
+  <div class="section">
     <div class="section-title">Cars</div>
     <div class="gallery">
-      <div class="card"><img src="images/cars/bugatti.jpg" alt="Bugatti Chiron"><div class="card-title">Bugatti Chiron</div></div>
-      <div class="card"><img src="images/cars/jesko.jpg" alt="Koeniesegg Jesko"><div class="card-title">Koeniesegg Jesko</div></div>
-      <div class="card"><img src="images/cars/veneno.jpg" alt="Veneno Roadster"><div class="card-title">Veneno Roadster</div></div>
+      <div class="card" data-gallery="bugatti">
+        <img src="images/cars/bugatti/1.jpg" alt="Bugatti Chiron">
+        <div class="card-title">Bugatti Chiron</div>
+      </div>
+      <div class="card" data-gallery="jesko">
+        <img src="images/cars/jesko/1.jpg" alt="Koenigsegg Jesko">
+        <div class="card-title">Koenigsegg Jesko</div>
+      </div>
+      <div class="card" data-gallery="veneno">
+        <img src="images/cars/veneno/1.jpg" alt="Veneno Roadster">
+        <div class="card-title">Veneno Roadster</div>
+      </div>
     </div>
-  </div>  <div class="section">
-    <div class="section-title">Games</div>
-    <div class="gallery">
-      <div class="card"><img src="images/games/arknights.jpg" alt="Arknights"><div class="card-title">Arknights</div></div>
-      <div class="card"><img src="images/games/dbd.jpg" alt="Dead By Daylight"><div class="card-title">Dead By Daylight</div></div>
-      <div class="card"><img src="images/games/genshin.jpg" alt="Genshin Impact"><div class="card-title">Genshin Impact</div></div>
-      <div class="card"><img src="images/games/pubg.jpg" alt="Pubg Mobile"><div class="card-title">Pubg Mobile</div></div>
-      <div class="card"><img src="images/games/wuthering.jpg" alt="Wuthering Waves"><div class="card-title">Wuthering Waves</div></div>
-    </div>
-  </div>  <div class="section">
-    <div class="section-title">Girls</div>
-    <div class="gallery">
-      <div class="card"><img src="images/girls/anastasia.jpg" alt="Anastasia Bezrukova"><div class="card-title">Anastasia Bezrukova</div></div>
-      <div class="card"><img src="images/girls/barbara.jpg" alt="Barbra Palvin"><div class="card-title">Barbra Palvin</div></div>
-      <div class="card"><img src="images/girls/elina.jpg" alt="Elina Karimova"><div class="card-title">Elina Karimova</div></div>
-      <div class="card"><img src="images/girls/kristina.jpg" alt="Kristina Pimenova"><div class="card-title">Kristina Pimenova</div></div>
-      <div class="card"><img src="images/girls/mckenna.jpg" alt="McKenna Grace"><div class="card-title">McKenna Grace</div></div>
-    </div>
-  </div>  <div class="lightbox" id="lightbox">
-    <img src="" alt="Lightbox Image" id="lightbox-img">
-  </div>  <script>
-    // Lightbox script
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    document.querySelectorAll('.card img').forEach(img => {
-      img.addEventListener('click', () => {
-        lightbox.style.display = 'flex';
-        lightboxImg.src = img.src;
-      });
-    });
-    lightbox.addEventListener('click', () => {
-      lightbox.style.display = 'none';
-    });
+  </div>
 
-    // Dark scroll animation
-    const sections = document.querySelectorAll('.section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.2
-    });
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <img id="lightbox-img" src="" alt="Full View">
+  </div>
 
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-  </script></body>
+  <script src="script.js"></script>
+</body>
 </html>
