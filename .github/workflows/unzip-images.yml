@@ -22,7 +22,7 @@ jobs:
       - name: Commit and push unzipped images
         run: |
           git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          git config user.email "OnemanCircle/1-More-Try"
           git add images
           git commit -m "Unzipped images.zip and added contents to images/"
           git push
