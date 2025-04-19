@@ -3,13 +3,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neon Purple Gallery</title>
-  <link rel="stylesheet" href="styles.css">
   <style>
     body {
       margin: 0;
       background: #1b002f;
       color: white;
       font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
     }h1 {
   text-align: center;
   font-size: 3em;
@@ -19,6 +19,14 @@
 
 .section {
   padding: 40px 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section-title {
@@ -40,6 +48,7 @@
   overflow: hidden;
   box-shadow: 0 0 20px 5px #ffd70055;
   transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -59,6 +68,26 @@
   font-weight: bold;
   color: #f0c040;
   background-color: #1b002f;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 0 30px 10px #ffd70088;
 }
 
   </style>
@@ -89,6 +118,36 @@
       <div class="card"><img src="images/girls/kristina.jpg" alt="Kristina Pimenova"><div class="card-title">Kristina Pimenova</div></div>
       <div class="card"><img src="images/girls/mckenna.jpg" alt="McKenna Grace"><div class="card-title">McKenna Grace</div></div>
     </div>
-  </div>
-</body>
+  </div>  <div class="lightbox" id="lightbox">
+    <img src="" alt="Lightbox Image" id="lightbox-img">
+  </div>  <script>
+    // Lightbox script
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.card img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    // Dark scroll animation
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script></body>
 </html>
