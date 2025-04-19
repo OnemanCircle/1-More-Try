@@ -25,4 +25,4 @@ jobs:
           git config user.email "OnemanCircle/1-More-Try"
           git add images
           git commit -m "Unzipped images.zip and added contents to images/"
-          git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
