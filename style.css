@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  background: #1b002f;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+  color: #f0c040;
+  margin-top: 20px;
+}
+
+.section {
+  padding: 40px 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title {
+  font-size: 2em;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0c040;
+  display: inline-block;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #2c003f;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px 5px #ffd70055;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px 10px #ffd700aa;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-title {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  color: #f0c040;
+  background-color: #1b002f;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 0 30px 10px #ffd70088;
+}
