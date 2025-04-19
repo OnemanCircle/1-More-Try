@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Purple Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      background: #1b002f;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }h1 {
+  text-align: center;
+  font-size: 3em;
+  color: #f0c040;
+  margin-top: 20px;
+}
+
+.section {
+  padding: 40px 20px;
+}
+
+.section-title {
+  font-size: 2em;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0c040;
+  display: inline-block;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #2c003f;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px 5px #ffd70055;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px 10px #ffd700aa;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-title {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  color: #f0c040;
+  background-color: #1b002f;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Neon Purple Gallery</h1>  <div class="section">
+    <div class="section-title">Cars</div>
+    <div class="gallery">
+      <div class="card"><img src="images/cars/bugatti.jpg" alt="Bugatti Chiron"><div class="card-title">Bugatti Chiron</div></div>
+      <div class="card"><img src="images/cars/jesko.jpg" alt="Koeniesegg Jesko"><div class="card-title">Koeniesegg Jesko</div></div>
+      <div class="card"><img src="images/cars/veneno.jpg" alt="Veneno Roadster"><div class="card-title">Veneno Roadster</div></div>
+    </div>
+  </div>  <div class="section">
+    <div class="section-title">Games</div>
+    <div class="gallery">
+      <div class="card"><img src="images/games/arknights.jpg" alt="Arknights"><div class="card-title">Arknights</div></div>
+      <div class="card"><img src="images/games/dbd.jpg" alt="Dead By Daylight"><div class="card-title">Dead By Daylight</div></div>
+      <div class="card"><img src="images/games/genshin.jpg" alt="Genshin Impact"><div class="card-title">Genshin Impact</div></div>
+      <div class="card"><img src="images/games/pubg.jpg" alt="Pubg Mobile"><div class="card-title">Pubg Mobile</div></div>
+      <div class="card"><img src="images/games/wuthering.jpg" alt="Wuthering Waves"><div class="card-title">Wuthering Waves</div></div>
+    </div>
+  </div>  <div class="section">
+    <div class="section-title">Girls</div>
+    <div class="gallery">
+      <div class="card"><img src="images/girls/anastasia.jpg" alt="Anastasia Bezrukova"><div class="card-title">Anastasia Bezrukova</div></div>
+      <div class="card"><img src="images/girls/barbara.jpg" alt="Barbra Palvin"><div class="card-title">Barbra Palvin</div></div>
+      <div class="card"><img src="images/girls/elina.jpg" alt="Elina Karimova"><div class="card-title">Elina Karimova</div></div>
+      <div class="card"><img src="images/girls/kristina.jpg" alt="Kristina Pimenova"><div class="card-title">Kristina Pimenova</div></div>
+      <div class="card"><img src="images/girls/mckenna.jpg" alt="McKenna Grace"><div class="card-title">McKenna Grace</div></div>
+    </div>
+  </div>
+</body>
+</html>
